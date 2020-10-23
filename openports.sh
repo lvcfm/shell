@@ -1,7 +1,6 @@
 #!/bin/bash
 
 result=`systemctl status firewalld | grep running`
-i
 if [[ "$result" != "" ]]
 then
 
