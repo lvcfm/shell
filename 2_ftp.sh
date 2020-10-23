@@ -31,6 +31,9 @@ then
     chmod a-w /data/ftp && chmod 777 -R /data/ftp/pub
     usermod -d /data/ftp ftpftp
     echo "安装配置完成，账号ftpftp密LVCFMftpPWD，请妥善保管"
+    sed -i '/shell/ s/auth/#auth/' /etc/pam.d/vsftpd
+    echo "防止使用账户密码连接不上ftp服务器！"
+    service vsftpd restart
     echo "**********************************************"
 else
     echo "安装失败！退出脚本"
