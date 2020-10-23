@@ -37,6 +37,7 @@ then
     else
         echo "--------------设置MySql密码--------------"
         service mysqld start
+        sed -i '$avalidate_password = off' /etc/my.cnf
         readpwd
         settingpwd
         echo "-----Login_MySQL-----"
